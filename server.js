@@ -23,11 +23,11 @@ const rappers = {
 
 
 app.get('/', (request, response)=> {
-    response.sendFile(_dirname + '/index.html')
+    response.sendFile(__dirname + '/index.html')
 })
 
 app.get('/api/:name', (request,response)=>{
-    let rapperName = request.params.name.toLowerCase()
+    const rapperName = request.params.name.toLowerCase()
     if (rappers[rapperName]){
         response.json(rappers[rapperName])
     }else{
